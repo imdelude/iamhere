@@ -1,4 +1,6 @@
-﻿namespace iamhere.Requests
+﻿using System;
+
+namespace iamhere.Requests
 {
     /// <summary>
     /// Is used to show available territories through the point of view of particular countries.
@@ -87,5 +89,43 @@
         /// Shows Tunb Islands as a part of the United Arab Emirates.
         /// </summary>
         UnitedArabEmirates = 12
+    }
+
+    public static class PoliticalViewExtensions
+    {
+        public static string ToCamelCaseString(this PoliticalView politicalView)
+        {
+            switch (politicalView)
+            {
+                case PoliticalView.Argentina:
+                    return "ARG";
+                case PoliticalView.Egypt:
+                    return "EGY";
+                case PoliticalView.Greece:
+                    return "GRC";
+                case PoliticalView.India:
+                    return "IND";
+                case PoliticalView.Israel:
+                    return "ISR";
+                case PoliticalView.Kenya:
+                    return "KEN";
+                case PoliticalView.Morocco:
+                    return "MAR";
+                case PoliticalView.Pakistan:
+                    return "PAK";
+                case PoliticalView.Russia:
+                    return "RUS";
+                case PoliticalView.Turkey:
+                    return "TUR";
+                case PoliticalView.Vietnam:
+                    return "VNM";
+                case PoliticalView.UnitedArabEmirates:
+                    return "ARE";
+                case PoliticalView.Default:
+                    return string.Empty;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
     }
 }

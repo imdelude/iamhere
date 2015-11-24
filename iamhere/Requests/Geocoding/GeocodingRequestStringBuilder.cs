@@ -31,8 +31,8 @@ namespace iamhere.Requests.Geocoding
             builder.Append(BaseUrl);
 
             //Add the credentials
-            AppendStringIfNotEmpty(builder, "app_code", request.ApplicationCode);
-            AppendStringIfNotEmpty(builder, "app_id", request.ApplicationId);
+            builder.Append($"app_code={request.ApplicationCode}");
+            builder.Append($"&app_id={request.ApplicationId}");
 
             builder.Append($"&gen={request.Generation}");
 
@@ -61,6 +61,7 @@ namespace iamhere.Requests.Geocoding
             AppendStringIfNotEmpty(builder, "bbox", request.BoundingBox.ToString());
             AppendStringIfNotEmpty(builder, "prox", request.Proximity.ToString());
 
+            AppendStringIfNotEmpty(builder, "politicalview", request.PoliticalView.ToCamelCaseString());
 
             return builder.ToString();
         }
