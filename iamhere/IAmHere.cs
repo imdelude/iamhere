@@ -73,6 +73,10 @@ namespace iamhere
                 var response = await client.GetAsync(requestString);
                 var body = await response.Content.ReadAsStringAsync();
 
+                //How should we handle http codes that indiciate failure?
+
+                //This is where we will parse into our response data structure
+
                 return body;
             }
         }

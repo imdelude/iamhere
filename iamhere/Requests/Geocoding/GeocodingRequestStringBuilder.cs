@@ -60,7 +60,6 @@ namespace iamhere.Requests.Geocoding
             }
 
             //Add spatial filters
-
             if (request.BoundingBox != null)
             {
                 AppendStringIfNotEmpty(builder, "bbox", request.BoundingBox.ToString());
