@@ -1,6 +1,6 @@
 ﻿using iamhere.Common;
 
-namespace iamhere.Requests
+namespace iamhere.Requests.Geocoding
 {
     /// <summary>
     /// Represents the request that will be made to the Geocode resource.
