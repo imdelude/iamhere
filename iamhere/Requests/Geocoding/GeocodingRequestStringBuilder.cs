@@ -36,6 +36,18 @@ namespace iamhere.Requests.Geocoding
 
             builder.Append($"&gen={request.Generation}");
 
+
+            AppendStringIfNotEmpty(builder, "city", request.City);
+            AppendStringIfNotEmpty(builder, "country", request.Country);
+            AppendStringIfNotEmpty(builder, "street", request.Street);
+            AppendStringIfNotEmpty(builder, "housenumber", request.HouseNumber);
+            AppendStringIfNotEmpty(builder, "postalcode", request.PostalCode);
+            AppendStringIfNotEmpty(builder, "county", request.County);
+            AppendStringIfNotEmpty(builder, "district", request.District);
+            AppendStringIfNotEmpty(builder, "state", request.State);
+            AppendStringIfNotEmpty(builder, "locationid", request.LocationId);
+            AppendStringIfNotEmpty(builder, "countryfocus", request.CountryFocus);
+
             //Add pagination parameters
             if (request.MaximumPageSize.HasValue)
             {
@@ -45,7 +57,6 @@ namespace iamhere.Requests.Geocoding
             {
                 builder.Append($"&pageinformation={request.PageNumber}");
             }
-
 
             return builder.ToString();
         }
@@ -57,6 +68,5 @@ namespace iamhere.Requests.Geocoding
 
             builder.Append($"&{parameterName}={parameterValue}");
         }
-
     }
 }
