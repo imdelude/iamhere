@@ -1,7 +1,7 @@
 ﻿namespace iamhere.Requests
 {
     /// <summary>
-    /// Represents an element which will be present in the response data.
+    /// Represents an address element which will be present in the response data.
     /// </summary>
     public enum AddressAttribute
     {

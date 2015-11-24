@@ -6,7 +6,7 @@
     public class GeocodingRequest : Request
     {
         /// <summary>
-        /// List of elements that will be present in the response data.
+        /// List of address elements that will be present in the response data.
         /// </summary>
         public AddressAttribute[] AddressAttributes { get; set; } =
         {
@@ -47,6 +47,14 @@
         public string HouseNumber { get; set; }
 
         /// <summary>
+        /// List of location elements that will be present in the response data.
+        /// </summary>
+        public LocationAttribute[] LocationAttributes { get; set; } =
+        {
+            LocationAttribute.Address, LocationAttribute.MapView, LocationAttribute.AdditionalData
+        };
+
+        /// <summary>
         /// A key uniquely identifying a physical location. Each record in a geocode response contains a location id.
         /// </summary>
         public string LocationId { get; set; }
@@ -70,6 +78,14 @@
         /// Postal code as defined by the government of the country. 
         /// </summary>
         public string PostalCode { get; set; }
+
+        /// <summary>
+        /// List of response elements that will be present in the response data.
+        /// </summary>
+        public ResponseAttribute[] ResponseAttributes { get; set; } =
+        {
+            ResponseAttribute.MatchQuality, ResponseAttribute.MatchType
+        };
 
         /// <summary>
         /// First subdivision below the country. Supports full or abbreviated notation. Uses exact matching.

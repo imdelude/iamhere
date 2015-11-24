@@ -42,10 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Requests\AddressAttribute.cs" />
+    <Compile Include="Requests\LocationAttribute.cs" />
     <Compile Include="Requests\PoliticalView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\GeocodingRequest.cs" />
     <Compile Include="Requests\Request.cs" />
+    <Compile Include="Requests\ResponseAttribute.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
