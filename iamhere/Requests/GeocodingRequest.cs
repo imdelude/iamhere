@@ -6,9 +6,50 @@
     public class GeocodingRequest : Request
     {
         /// <summary>
+        /// List of elements that will be present in the response data.
+        /// </summary>
+        public AddressAttribute[] AddressAttributes { get; set; } =
+        {
+            AddressAttribute.Country, AddressAttribute.State, AddressAttribute.County,
+            AddressAttribute.City, AddressAttribute.District, AddressAttribute.Subdistrict,
+            AddressAttribute.Street, AddressAttribute.HouseNumber, AddressAttribute.PostalCode,
+            AddressAttribute.AdditionalData
+        };
+
+        /// <summary>
+        /// The city. Uses fuzzy matching.
+        /// </summary>
+        public string City { get; set; }
+
+        /// <summary>
         /// Specifies the country using the country code (ISO 3166-1-alpha-3) or the country name. This is a strict filter; meaining that results are restricted to the specified country.
         /// </summary>
         public string Country { get; set; }
+
+        /// <summary>
+        /// Results from the specified country (ISO 3166-1-alpha-3) are preferred. This is a soft filter, if both this and Country are specified the Country filter will takes precedence.
+        /// </summary>
+        public string CountryFocus { get; set; }
+
+        /// <summary>
+        /// Second subdivision below the country. Depending on the admin hierarchy in a country this level might not be applicable. Uses fuzzy matching.
+        /// </summary>
+        public string County { get; set; }
+
+        /// <summary>
+        /// Subdivision level below the city. Depending on the admin hierarchy in a country this level might not be applicable. Uses fuzzy matching.
+        /// </summary>
+        public string District { get; set; }
+
+        /// <summary>
+        /// The house number or house name. Uses exact matching.
+        /// </summary>
+        public string HouseNumber { get; set; }
+
+        /// <summary>
+        /// A key uniquely identifying a physical location. Each record in a geocode response contains a location id.
+        /// </summary>
+        public string LocationId { get; set; }
 
         /// <summary>
         /// The maximum number of results in one page result.
