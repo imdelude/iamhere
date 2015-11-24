@@ -25,5 +25,10 @@
             Center = center;
             Radius = radius;
         }
+
+        public override string ToString()
+        {
+            return $"{Center.Latitude},{Center.Longitude},{Radius}";
+        }
     }
 }

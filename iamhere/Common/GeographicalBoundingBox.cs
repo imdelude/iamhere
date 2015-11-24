@@ -20,5 +20,10 @@
             TopLeft = topLeft;
             BottomRight = bottomRight;
         }
+
+        public override string ToString()
+        {
+            return $"{TopLeft};{BottomRight}";
+        }
     }
 }

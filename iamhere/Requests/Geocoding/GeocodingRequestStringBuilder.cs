@@ -12,7 +12,7 @@ namespace iamhere.Requests.Geocoding
         private readonly string _version;
         private readonly ResponseFormat _responseFormat;
 
-        private string BaseUrl => $"{_baseUrl}/{_version}/{GeocodingResourceEndpoint}.{_responseFormat.ToFriendlyString()}";
+        private string BaseUrl => $"{_baseUrl}/{_version}/{GeocodingResourceEndpoint}.{_responseFormat.ToFriendlyString()}?";
 
         public GeocodingRequestStringBuilder(string baseUrl, string version, ResponseFormat responseFormat)
         {
@@ -36,7 +36,6 @@ namespace iamhere.Requests.Geocoding
 
             builder.Append($"&gen={request.Generation}");
 
-
             AppendStringIfNotEmpty(builder, "city", request.City);
             AppendStringIfNotEmpty(builder, "country", request.Country);
             AppendStringIfNotEmpty(builder, "street", request.Street);
@@ -57,6 +56,11 @@ namespace iamhere.Requests.Geocoding
             {
                 builder.Append($"&pageinformation={request.PageNumber}");
             }
+
+            //Add spatial filters
+            AppendStringIfNotEmpty(builder, "bbox", request.BoundingBox.ToString());
+            AppendStringIfNotEmpty(builder, "prox", request.Proximity.ToString());
+
 
             return builder.ToString();
         }
