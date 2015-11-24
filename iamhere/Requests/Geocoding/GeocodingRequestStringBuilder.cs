@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
+using System.Web;
 using iamhere.Common;
 
 namespace iamhere.Requests.Geocoding
@@ -77,7 +78,7 @@ namespace iamhere.Requests.Geocoding
             AppendStringIfNotEmpty(builder, "responseattributes", BuildCommaSeparatedString(request.ResponseAttributes, BuildResponseAttributeString));
 
 
-            return builder.ToString();
+            return HttpUtility.UrlEncode(builder.ToString());
         }
 
         private string BuildCommaSeparatedString<T>(T[] values, Func<T, string> valueToStringFunc)

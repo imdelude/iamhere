@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,6 +46,7 @@
     <Compile Include="Common\GeographicalPoint.cs" />
     <Compile Include="Common\GeographicalProximity.cs" />
     <Compile Include="Common\ResponseFormat.cs" />
+    <Compile Include="IAmHere.cs" />
     <Compile Include="Requests\AddressAttribute.cs" />
     <Compile Include="Requests\Geocoding\GeocodingRequestStringBuilder.cs" />
     <Compile Include="Requests\IRequestStringBuilder.cs" />
