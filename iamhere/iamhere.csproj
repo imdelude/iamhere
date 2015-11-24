@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\GeographicalBoundingBox.cs" />
+    <Compile Include="Common\GeographicalPoint.cs" />
+    <Compile Include="Common\GeographicalProximity.cs" />
     <Compile Include="Requests\AddressAttribute.cs" />
     <Compile Include="Requests\LocationAttribute.cs" />
     <Compile Include="Requests\PoliticalView.cs" />
