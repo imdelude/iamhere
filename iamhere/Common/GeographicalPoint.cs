@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents a geographical position.
     /// </summary>
-    public struct GeographicalPoint
+    public class GeographicalPoint
     {
         public float Latitude { get; }
         public float Longitude { get; }

@@ -1,9 +1,11 @@
-﻿namespace iamhere.Common
+﻿using System;
+
+namespace iamhere.Common
 {
     /// <summary>
     /// Represents a rectangular area in a geographical coordinate system.
     /// </summary>
-    public struct GeographicalBoundingBox
+    public class GeographicalBoundingBox
     {
         /// <summary>
         /// Top-left corner of the rectangular area.
@@ -17,6 +19,8 @@
 
         public GeographicalBoundingBox(GeographicalPoint topLeft, GeographicalPoint bottomRight)
         {
+            if (topLeft == null) throw new ArgumentNullException(nameof(topLeft));
+            if (bottomRight == null) throw new ArgumentNullException(nameof(bottomRight));
             TopLeft = topLeft;
             BottomRight = bottomRight;
         }

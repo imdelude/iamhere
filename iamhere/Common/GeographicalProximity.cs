@@ -1,9 +1,11 @@
-﻿namespace iamhere.Common
+﻿using System;
+
+namespace iamhere.Common
 {
     /// <summary>
     /// Represents a circular area 
     /// </summary>
-    public struct GeographicalCircularArea
+    public class GeographicalCircularArea
     {
         /// <summary>
         /// The center of the circular area
@@ -22,6 +24,7 @@
         /// <param name="radius">The radius of the area, in meters.</param>
         public GeographicalCircularArea(GeographicalPoint center, int radius)
         {
+            if (center == null) throw new ArgumentNullException(nameof(center));
             Center = center;
             Radius = radius;
         }

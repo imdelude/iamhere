@@ -12,7 +12,7 @@ namespace iamhere.Requests.Geocoding
         private readonly string _version;
         private readonly ResponseFormat _responseFormat;
 
-        private string BaseUrl => $"{_baseUrl}/{_version}/{GeocodingResourceEndpoint}.{_responseFormat.ToFriendlyString()}?";
+        private string BaseUrl => $"{_baseUrl}/{_version}/{GeocodingResourceEndpoint}.{_responseFormat.ToFriendlyString()}";
 
         public GeocodingRequestStringBuilder(string baseUrl, string version, ResponseFormat responseFormat)
         {
@@ -31,7 +31,7 @@ namespace iamhere.Requests.Geocoding
             builder.Append(BaseUrl);
 
             //Add the credentials
-            builder.Append($"app_code={request.ApplicationCode}");
+            builder.Append($"?app_code={request.ApplicationCode}");
             builder.Append($"&app_id={request.ApplicationId}");
 
             builder.Append($"&gen={request.Generation}");
@@ -58,9 +58,16 @@ namespace iamhere.Requests.Geocoding
             }
 
             //Add spatial filters
-            AppendStringIfNotEmpty(builder, "bbox", request.BoundingBox.ToString());
-            AppendStringIfNotEmpty(builder, "prox", request.Proximity.ToString());
 
+            if (request.BoundingBox != null)
+            {
+                AppendStringIfNotEmpty(builder, "bbox", request.BoundingBox.ToString());
+            }
+            if (request.Proximity != null)
+            {
+                AppendStringIfNotEmpty(builder, "prox", request.Proximity.ToString());
+            }
+             
             AppendStringIfNotEmpty(builder, "politicalview", request.PoliticalView.ToCamelCaseString());
 
             return builder.ToString();
