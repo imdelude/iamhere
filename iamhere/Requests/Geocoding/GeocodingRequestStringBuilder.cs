@@ -30,11 +30,33 @@ namespace iamhere.Requests.Geocoding
             var builder = new StringBuilder();
             builder.Append(BaseUrl);
 
+            //Add the credentials
+            AppendStringIfNotEmpty(builder, "app_code", request.ApplicationCode);
+            AppendStringIfNotEmpty(builder, "app_id", request.ApplicationId);
+
+            builder.Append($"&gen={request.Generation}");
+
+            //Add pagination parameters
+            if (request.MaximumPageSize.HasValue)
+            {
+                builder.Append($"&maxresults={request.MaximumPageSize}");
+            }
+            if (request.PageNumber.HasValue)
+            {
+                builder.Append($"&pageinformation={request.PageNumber}");
+            }
+
 
             return builder.ToString();
         }
 
+        private void AppendStringIfNotEmpty(StringBuilder builder, string parameterName, string parameterValue)
+        {
+            if (string.IsNullOrEmpty(parameterName)) return;
+            if (string.IsNullOrEmpty(parameterValue)) return;
+
+            builder.Append($"&{parameterName}={parameterValue}");
+        }
+
     }
 }
-
-//der("http://geocoder.api.here.com/6.2/geocode");
