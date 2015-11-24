@@ -14,14 +14,29 @@ namespace iamhere
         private const string CurrentVersion = "6.2";
         private const ResponseFormat ResponseFormat = Common.ResponseFormat.Json;
 
-        private readonly IRequestStringBuilder<GeocodingRequest> _geocodingRequestStringBuilder;
+        private IRequestStringBuilder<GeocodingRequest> _geocodingRequestStringBuilder;
+        public IRequestStringBuilder<GeocodingRequest> GeocodingRequestStringBuilder
+        {
+            get
+            {
+                return _geocodingRequestStringBuilder ??
+                       (_geocodingRequestStringBuilder =
+                           new GeocodingRequestStringBuilder(BaseUrl, CurrentVersion, ResponseFormat));
+            }
+            set
+            {
+                // ReSharper disable once NotResolvedInText
+                if (value == null) throw new ArgumentNullException("GeocodingRequestStringBuilder");
+                _geocodingRequestStringBuilder = value;
+            }
+        }
 
         public IAmHere() : this(new GeocodingRequestStringBuilder(BaseUrl, CurrentVersion, ResponseFormat)) { }
 
         public IAmHere(IRequestStringBuilder<GeocodingRequest> geocodingRequestStringBuilder)
         {
             if (geocodingRequestStringBuilder == null) throw new ArgumentNullException(nameof(geocodingRequestStringBuilder));
-            _geocodingRequestStringBuilder = geocodingRequestStringBuilder;
+            GeocodingRequestStringBuilder = geocodingRequestStringBuilder;
         }
 
         //The return object will be our response structure later on, the string is just for now
@@ -31,7 +46,7 @@ namespace iamhere
 
             using (var client = new HttpClient())
             {
-                var requestString = _geocodingRequestStringBuilder.Build(request);
+                var requestString = GeocodingRequestStringBuilder.Build(request);
 
                 var response = client.GetAsync(requestString).Result;
 
@@ -53,7 +68,7 @@ namespace iamhere
 
             using (var client = new HttpClient())
             {
-                var requestString = _geocodingRequestStringBuilder.Build(request);
+                var requestString = GeocodingRequestStringBuilder.Build(request);
 
                 var response = await client.GetAsync(requestString);
                 var body = await response.Content.ReadAsStringAsync();
