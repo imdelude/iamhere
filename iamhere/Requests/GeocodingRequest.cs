@@ -1,4 +1,6 @@
-﻿namespace iamhere.Requests
+﻿using iamhere.Common;
+
+namespace iamhere.Requests
 {
     /// <summary>
     /// Represents the request that will be made to the Geocode resource.
@@ -15,6 +17,11 @@
             AddressAttribute.Street, AddressAttribute.HouseNumber, AddressAttribute.PostalCode,
             AddressAttribute.AdditionalData
         };
+
+        /// <summary>
+        /// A type of spatial filter that limits the search for any other attributes in the request.
+        /// </summary>
+        public GeographicalBoundingBox BoundingBox { get; set; }
 
         /// <summary>
         /// The city. Uses fuzzy matching.
@@ -78,6 +85,11 @@
         /// Postal code as defined by the government of the country. 
         /// </summary>
         public string PostalCode { get; set; }
+
+        /// <summary>
+        /// A type of spatical filter that limits the search for any other attributes in the request.
+        /// </summary>
+        public GeographicalCircularArea Proximity { get; set; } 
 
         /// <summary>
         /// List of response elements that will be present in the response data.
