@@ -31,14 +31,6 @@ namespace iamhere
             }
         }
 
-        public IAmHere() : this(new GeocodingRequestStringBuilder(BaseUrl, CurrentVersion, ResponseFormat)) { }
-
-        public IAmHere(IRequestStringBuilder<GeocodingRequest> geocodingRequestStringBuilder)
-        {
-            if (geocodingRequestStringBuilder == null) throw new ArgumentNullException(nameof(geocodingRequestStringBuilder));
-            GeocodingRequestStringBuilder = geocodingRequestStringBuilder;
-        }
-
         //The return object will be our response structure later on, the string is just for now
         public string GetGeocodes(GeocodingRequest request)
         {
