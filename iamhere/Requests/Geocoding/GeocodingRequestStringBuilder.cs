@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 using iamhere.Common;
 
@@ -70,7 +71,99 @@ namespace iamhere.Requests.Geocoding
              
             AppendStringIfNotEmpty(builder, "politicalview", request.PoliticalView.ToCamelCaseString());
 
+            //Add response attributes
+            AppendStringIfNotEmpty(builder, "addressattributes", BuildCommaSeparatedString(request.AddressAttributes, BuildAddressAttributeString));
+            AppendStringIfNotEmpty(builder, "locationattributes", BuildCommaSeparatedString(request.LocationAttributes, BuildLocationAttributeString));
+            AppendStringIfNotEmpty(builder, "responseattributes", BuildCommaSeparatedString(request.ResponseAttributes, BuildResponseAttributeString));
+
+
             return builder.ToString();
+        }
+
+        private string BuildCommaSeparatedString<T>(T[] values, Func<T, string> valueToStringFunc)
+        {
+            return string.Join(",", values.Select(valueToStringFunc));
+        }
+
+        private string BuildAddressAttributeString(AddressAttribute addressAttribute)
+        {
+            switch (addressAttribute)
+            {
+                case AddressAttribute.AdditionalData:
+                    return "additionalData";
+                case AddressAttribute.AddressLines:
+                    return "addressLines";
+                case AddressAttribute.City:
+                    return "city";
+                case AddressAttribute.Country:
+                    return "country";
+                case AddressAttribute.County:
+                    return "county";
+                case AddressAttribute.District:
+                    return "district";
+                case AddressAttribute.HouseNumber:
+                    return "houseNumber";
+                case AddressAttribute.PostalCode:
+                    return "postalCode";
+                case AddressAttribute.State:
+                    return "state";
+                case AddressAttribute.Street:
+                    return "street";
+                case AddressAttribute.Subdistrict:
+                    return "subdistrict";
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        private string BuildLocationAttributeString(LocationAttribute locationAttribute)
+        {
+            switch (locationAttribute)
+            {
+                case LocationAttribute.Address:
+                    return "address";
+                case LocationAttribute.AdditionalData:
+                    return "additionalData";
+                case LocationAttribute.AddressDetails:
+                    return "addressDetails";
+                case LocationAttribute.AddressNamesBilingual:
+                    return "addressNamesBilingual";
+                case LocationAttribute.AdminIdentifiers:
+                    return "adminIds";
+                case LocationAttribute.AdminInfo:
+                    return "adminInfo";
+                case LocationAttribute.LinkInfo:
+                    return "linkInfo";
+                case LocationAttribute.MapReference:
+                    return "mapReference";
+                case LocationAttribute.MapView:
+                    return "mapView";
+                case LocationAttribute.StreetDetails:
+                    return "streetDetails";
+                case LocationAttribute.TimeZone:
+                    return "timeZone";
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        private string BuildResponseAttributeString(ResponseAttribute responseAttribute)
+        {
+            switch (responseAttribute)
+            {
+                case ResponseAttribute.MatchCode:
+                    return "matchCode";
+                case ResponseAttribute.MatchQuality:
+                    return "matchQuality";
+                case ResponseAttribute.MatchType:
+                    return "matchType";
+                case ResponseAttribute.PerformedSearch:
+                    return "performedSearch";
+                case ResponseAttribute.ParsedRequest:
+                    return "parsedRequest";
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         private void AppendStringIfNotEmpty(StringBuilder builder, string parameterName, string parameterValue)
