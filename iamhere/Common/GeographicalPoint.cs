@@ -8,7 +8,7 @@
         public float Latitude { get; }
         public float Longitude { get; }
 
-        public GeographicalPoint(int latitude, int longitude)
+        public GeographicalPoint(float latitude, float longitude)
         {
             Latitude = latitude;
             Longitude = longitude;
