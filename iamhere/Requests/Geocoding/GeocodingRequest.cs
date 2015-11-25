@@ -14,8 +14,7 @@ namespace iamhere.Requests.Geocoding
         {
             AddressAttribute.Country, AddressAttribute.State, AddressAttribute.County,
             AddressAttribute.City, AddressAttribute.District, AddressAttribute.Subdistrict,
-            AddressAttribute.Street, AddressAttribute.HouseNumber, AddressAttribute.PostalCode,
-            AddressAttribute.AdditionalData
+            AddressAttribute.Street, AddressAttribute.HouseNumber, AddressAttribute.PostalCode
         };
 
         /// <summary>
@@ -58,7 +57,7 @@ namespace iamhere.Requests.Geocoding
         /// </summary>
         public LocationAttribute[] LocationAttributes { get; set; } =
         {
-            LocationAttribute.Address, LocationAttribute.MapView, LocationAttribute.AdditionalData
+            LocationAttribute.Address, LocationAttribute.MapView
         };
 
         /// <summary>
