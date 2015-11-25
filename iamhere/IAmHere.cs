@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 using iamhere.Common;
 using iamhere.Requests;
 using iamhere.Requests.Geocoding;
+using iamhere.Responses.Geocoding.Contract;
+using iamhere.Responses.Geocoding.Raw;
+using Newtonsoft.Json;
 
 namespace iamhere
 {
@@ -32,7 +35,7 @@ namespace iamhere
         }
 
         //The return object will be our response structure later on, the string is just for now
-        public string GetGeocodes(GeocodingRequest request)
+        public IGeocodingResponse GetGeocodes(GeocodingRequest request)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
 
@@ -45,12 +48,13 @@ namespace iamhere
                 if (response.IsSuccessStatusCode)
                 {
                     var responseString = response.Content.ReadAsStringAsync().Result;
+                    var hereResponse = JsonConvert.DeserializeObject<HereResponse>(responseString);
 
-                    return responseString; // This is where we would parse into our response data structure
+                    return new GeocodingResponseAdapter(hereResponse.Response); // This is where we would parse into our response data structure
                 }
 
                 //Throw an exception here because the status code was not successful?
-                return string.Empty;
+                throw new Exception("Failed to retrieve Geocoding-response");
             }
         }
 
