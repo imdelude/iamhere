@@ -69,6 +69,17 @@
     <Compile Include="Responses\Geocoding\Contract\IResult.cs" />
     <Compile Include="Responses\Geocoding\Contract\IView.cs" />
     <Compile Include="Responses\Geocoding\Raw\HereResponse.cs" />
+    <Compile Include="Responses\Geocoding\Raw\AdditionalData.cs" />
+    <Compile Include="Responses\Geocoding\Raw\Address.cs" />
+    <Compile Include="Responses\Geocoding\Raw\Location.cs" />
+    <Compile Include="Responses\Geocoding\Raw\MatchCode.cs" />
+    <Compile Include="Responses\Geocoding\Raw\MatchLevel.cs" />
+    <Compile Include="Responses\Geocoding\Raw\MatchQuality.cs" />
+    <Compile Include="Responses\Geocoding\Raw\MatchType.cs" />
+    <Compile Include="Responses\Geocoding\Raw\Metainfo.cs" />
+    <Compile Include="Responses\Geocoding\Raw\Response.cs" />
+    <Compile Include="Responses\Geocoding\Raw\Result.cs" />
+    <Compile Include="Responses\Geocoding\Raw\View.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
