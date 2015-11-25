@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using iamhere.Requests.Geocoding;
 
 namespace iamhere.test
@@ -8,7 +9,7 @@ namespace iamhere.test
         static void Main(string[] args)
         {
             var iamhere = new IAmHere();
-            var request = new GeocodingRequest("applicationId", "applicationCode")
+            var request = new GeocodingRequest(ConfigurationManager.AppSettings["ApplicationId"], ConfigurationManager.AppSettings["ApplicationCode"])
             {
                 Country = "Sweden",
                 PostalCode = "504 64",
