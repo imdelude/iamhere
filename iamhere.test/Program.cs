@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using iamhere.Requests;
 using iamhere.Requests.Geocoding;
 
 namespace iamhere.test
@@ -13,7 +14,8 @@ namespace iamhere.test
             {
                 Country = "Sweden",
                 PostalCode = "504 64",
-                Street = "Vevgatan 6"
+                Street = "Vevgatan 6",
+                ResponseAttributes = new []{ResponseAttribute.MatchCode, ResponseAttribute.MatchQuality, ResponseAttribute.MatchType, }
             };
 
             var response = iamhere.GetGeocodes(request);
