@@ -77,7 +77,7 @@ namespace iamhere.Requests.Geocoding
             AppendStringIfNotEmpty(builder, "responseattributes", BuildCommaSeparatedString(request.ResponseAttributes, BuildResponseAttributeString));
 
 
-            return HttpUtility.UrlEncode(builder.ToString());
+            return builder.ToString();
         }
 
         private string BuildCommaSeparatedString<T>(T[] values, Func<T, string> valueToStringFunc)

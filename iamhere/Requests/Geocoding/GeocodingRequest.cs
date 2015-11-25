@@ -109,7 +109,7 @@ namespace iamhere.Requests.Geocoding
         public string Street { get; set; }
 
 
-        public GeocodingRequest(string applicationId, string applicationCode, int generation) : base(applicationId, applicationCode, generation)
+        public GeocodingRequest(string applicationId, string applicationCode, int generation = LatestGeneration) : base(applicationId, applicationCode, generation)
         {
         }
     }
