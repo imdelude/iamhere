@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Specialized;
-using System.Runtime.Serialization;
 using iamhere.Common;
-using Newtonsoft.Json;
 
 namespace iamhere.Responses
 {
@@ -66,14 +63,8 @@ namespace iamhere.Responses
         public string LocationType { get; set; }
         public GeographicalPoint DisplayPosition { get; set; }
         public GeographicalPoint[] NavigationPosition { get; set; }
-        public Mapview MapView { get; set; }
+        public GeographicalBoundingBox MapView { get; set; }
         public Address Address { get; set; }
-    }
-
-    public class Mapview
-    {
-        public GeographicalPoint TopLeft { get; set; }
-        public GeographicalPoint BottomRight { get; set; }
     }
 
     public class Address
