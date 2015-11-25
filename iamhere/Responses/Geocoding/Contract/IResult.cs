@@ -1,9 +1,13 @@
+using iamhere.Responses.Geocoding.Raw;
+
 namespace iamhere.Responses.Geocoding.Contract
 {
     public interface IResult
     {
         float? Relevance { get; }
-        string MatchLevel { get; } //Enum
+        MatchLevel MatchLevel { get; }
+        MatchCode MatchCode { get; }
+        MatchType MatchType { get; }
         IMatchQuality MatchQuality { get; }
         ILocation Location { get; }
     }
