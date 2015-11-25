@@ -1,4 +1,4 @@
-namespace iamhere.Responses.Geocoding.Raw
+﻿namespace iamhere.Responses.Geocoding.Raw
 {
     public class MatchQuality
     {
