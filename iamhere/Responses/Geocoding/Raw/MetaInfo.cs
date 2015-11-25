@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using iamhere.Responses.Geocoding.Contract;
 
 namespace iamhere.Responses.Geocoding.Raw
