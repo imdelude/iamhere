@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iamhere", "iamhere\iamhere.csproj", "{29358182-24E7-47D2-BE4B-CDB5FEF8E203}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iamhere.test", "iamhere.test\iamhere.test.csproj", "{209B29A0-A040-49FD-9D34-E5FC8D4A1CD5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{29358182-24E7-47D2-BE4B-CDB5FEF8E203}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29358182-24E7-47D2-BE4B-CDB5FEF8E203}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29358182-24E7-47D2-BE4B-CDB5FEF8E203}.Release|Any CPU.Build.0 = Release|Any CPU
+		{209B29A0-A040-49FD-9D34-E5FC8D4A1CD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{209B29A0-A040-49FD-9D34-E5FC8D4A1CD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{209B29A0-A040-49FD-9D34-E5FC8D4A1CD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{209B29A0-A040-49FD-9D34-E5FC8D4A1CD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

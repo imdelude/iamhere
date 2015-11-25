@@ -22,7 +22,7 @@ namespace iamhere.Requests
         /// <seealso cref="https://developer.here.com/rest-apis/documentation/geocoder/topics/key-concepts-schema-evolution.html#api-different-generations"/>
         public int Generation { get; }
 
-        protected Request(string applicationId, string applicationCode, int generation)
+        protected Request(string applicationId, string applicationCode, int generation = LatestGeneration)
         {
             if (applicationId == null) throw new ArgumentNullException(nameof(applicationId));
             if (applicationCode == null) throw new ArgumentNullException(nameof(applicationCode));
