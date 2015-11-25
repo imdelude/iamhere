@@ -61,12 +61,19 @@
     <Compile Include="Requests\Geocoding\GeocodingRequest.cs" />
     <Compile Include="Requests\Request.cs" />
     <Compile Include="Requests\ResponseAttribute.cs" />
-    <Compile Include="Responses\IHereResponse.cs" />
-    <Compile Include="Responses\HereResponse.cs" />
+    <Compile Include="Responses\Geocoding\Contract\IAddress.cs" />
+    <Compile Include="Responses\Geocoding\Contract\IGeocodingResponse.cs" />
+    <Compile Include="Responses\Geocoding\Contract\ILocation.cs" />
+    <Compile Include="Responses\Geocoding\Contract\IMatchQuality.cs" />
+    <Compile Include="Responses\Geocoding\Contract\IMetadata.cs" />
+    <Compile Include="Responses\Geocoding\Contract\IResult.cs" />
+    <Compile Include="Responses\Geocoding\Contract\IView.cs" />
+    <Compile Include="Responses\Geocoding\Raw\HereResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
