@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using iamhere.Common;
@@ -38,23 +40,13 @@ namespace iamhere
         public IGeocodingResponse GetGeocodes(GeocodingRequest request)
         {
             if (request == null) throw new ArgumentNullException(nameof(request));
-
-            using (var client = new HttpClient())
+            
+            using (var client = new WebClient())
             {
                 var requestString = GeocodingRequestStringBuilder.Build(request);
-
-                var response = client.GetAsync(requestString).Result;
-
-                if (response.IsSuccessStatusCode)
-                {
-                    var responseString = response.Content.ReadAsStringAsync().Result;
-                    var hereResponse = JsonConvert.DeserializeObject<HereResponse>(responseString);
-
-                    return new GeocodingResponseAdapter(hereResponse.Response); // This is where we would parse into our response data structure
-                }
-
-                //Throw an exception here because the status code was not successful?
-                throw new Exception("Failed to retrieve Geocoding-response");
+                var responseString = client.DownloadString(requestString);            
+                var hereResponse = JsonConvert.DeserializeObject<HereResponse>(responseString);       
+                return new GeocodingResponseAdapter(hereResponse.Response);             
             }
         }
 
