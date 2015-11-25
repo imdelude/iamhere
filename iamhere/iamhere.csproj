@@ -51,6 +51,7 @@
     <Compile Include="Common\GeographicalPoint.cs" />
     <Compile Include="Common\GeographicalProximity.cs" />
     <Compile Include="Common\ResponseFormat.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="IAmHere.cs" />
     <Compile Include="Requests\AddressAttribute.cs" />
     <Compile Include="Requests\Geocoding\GeocodingRequestStringBuilder.cs" />
@@ -68,6 +69,9 @@
     <Compile Include="Responses\Geocoding\Contract\IMetadata.cs" />
     <Compile Include="Responses\Geocoding\Contract\IResult.cs" />
     <Compile Include="Responses\Geocoding\Contract\IView.cs" />
+    <Compile Include="Responses\Geocoding\Raw\AddressAdapter.cs" />
+    <Compile Include="Responses\Geocoding\Raw\GeocodingResponseAdapter.cs" />
+    <Compile Include="Responses\Geocoding\Raw\LocationAdapter.cs" />
     <Compile Include="Responses\Geocoding\Raw\LocationType.cs" />
     <Compile Include="Responses\Geocoding\Raw\HereResponse.cs" />
     <Compile Include="Responses\Geocoding\Raw\AdditionalData.cs" />
@@ -76,11 +80,15 @@
     <Compile Include="Responses\Geocoding\Raw\MatchCode.cs" />
     <Compile Include="Responses\Geocoding\Raw\MatchLevel.cs" />
     <Compile Include="Responses\Geocoding\Raw\MatchQuality.cs" />
+    <Compile Include="Responses\Geocoding\Raw\MatchQualityAdapter.cs" />
     <Compile Include="Responses\Geocoding\Raw\MatchType.cs" />
+    <Compile Include="Responses\Geocoding\Raw\MetadataAdapter.cs" />
     <Compile Include="Responses\Geocoding\Raw\Metainfo.cs" />
     <Compile Include="Responses\Geocoding\Raw\Response.cs" />
     <Compile Include="Responses\Geocoding\Raw\Result.cs" />
+    <Compile Include="Responses\Geocoding\Raw\ResultAdapter.cs" />
     <Compile Include="Responses\Geocoding\Raw\View.cs" />
+    <Compile Include="Responses\Geocoding\Raw\ViewAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,6 +1,8 @@
+using iamhere.Responses.Geocoding.Contract;
+
 namespace iamhere.Responses.Geocoding.Raw
 {
-    public class Address
+    public class Address : IAddress
     {
         public string Label { get; set; }
         public string Country { get; set; }

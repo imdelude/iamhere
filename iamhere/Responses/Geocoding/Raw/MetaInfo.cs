@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 
 namespace iamhere.Responses.Geocoding.Raw
 {
-    public class Metainfo
+    public class MetaInfo
     {
         public DateTime Timestamp { get; set; }
         public int? NextPageInformation { get; set; }
