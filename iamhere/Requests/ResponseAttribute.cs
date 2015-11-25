@@ -5,10 +5,8 @@
     /// </summary>
     public enum ResponseAttribute
     {
-        PerformedSearch = 0,
-        MatchQuality = 1,
-        MatchType = 2,
-        MatchCode = 3,
-        ParsedRequest = 4
+        MatchQuality = 0,
+        MatchType = 1,
+        MatchCode = 2
     }
 }

@@ -13,8 +13,6 @@
         Subdistrict = 5,
         Street = 6,
         HouseNumber = 7,
-        PostalCode = 8,
-        AddressLines = 9,
-        AdditionalData = 10
+        PostalCode = 8
     }
 }

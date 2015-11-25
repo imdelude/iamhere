@@ -89,10 +89,6 @@ namespace iamhere.Requests.Geocoding
         {
             switch (addressAttribute)
             {
-                case AddressAttribute.AdditionalData:
-                    return "additionalData";
-                case AddressAttribute.AddressLines:
-                    return "addressLines";
                 case AddressAttribute.City:
                     return "city";
                 case AddressAttribute.Country:
@@ -122,26 +118,8 @@ namespace iamhere.Requests.Geocoding
             {
                 case LocationAttribute.Address:
                     return "address";
-                case LocationAttribute.AdditionalData:
-                    return "additionalData";
-                case LocationAttribute.AddressDetails:
-                    return "addressDetails";
-                case LocationAttribute.AddressNamesBilingual:
-                    return "addressNamesBilingual";
-                case LocationAttribute.AdminIdentifiers:
-                    return "adminIds";
-                case LocationAttribute.AdminInfo:
-                    return "adminInfo";
-                case LocationAttribute.LinkInfo:
-                    return "linkInfo";
-                case LocationAttribute.MapReference:
-                    return "mapReference";
                 case LocationAttribute.MapView:
                     return "mapView";
-                case LocationAttribute.StreetDetails:
-                    return "streetDetails";
-                case LocationAttribute.TimeZone:
-                    return "timeZone";
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -157,10 +135,6 @@ namespace iamhere.Requests.Geocoding
                     return "matchQuality";
                 case ResponseAttribute.MatchType:
                     return "matchType";
-                case ResponseAttribute.PerformedSearch:
-                    return "performedSearch";
-                case ResponseAttribute.ParsedRequest:
-                    return "parsedRequest";
                 default:
                     throw new ArgumentOutOfRangeException();
             }
